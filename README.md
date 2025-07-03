@@ -55,11 +55,17 @@ up a "local remote" on your file system:
 > the DVC project.
 
 ```console
-mkdir -p /tmp/dvc-storage
-dvc remote add local /tmp/dvc-storage
+mkdir -p /tmp/dvc_course_ds_base_storage
+dvc remote add -d local /tmp/dvc_course_ds_base_storage
 ```
 
 You should now be able to run:
+
+```console
+dvc push
+```
+
+Or by specifying the remote:
 
 ```console
 dvc push -r local
