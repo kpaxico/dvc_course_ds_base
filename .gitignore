@@ -16,3 +16,4 @@ __pycache__
 
 # Venv
 venv
+/test_file.txt
