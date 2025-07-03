@@ -44,3 +44,23 @@ jupyter nbextension enable toc2/main
 ```bash
 jupyter notebook
 ```
+
+## 4. Push DVC data
+
+If you'd like to test commands like [`dvc push`](https://man.dvc.org/push),
+that require write access to the remote storage, the easiest way would be to set
+up a "local remote" on your file system:
+
+> This kind of remote is located in the local file system, but is external to
+> the DVC project.
+
+```console
+mkdir -p /tmp/dvc-storage
+dvc remote add local /tmp/dvc-storage
+```
+
+You should now be able to run:
+
+```console
+dvc push -r local
+```
