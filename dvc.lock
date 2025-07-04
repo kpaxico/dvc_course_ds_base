@@ -114,8 +114,9 @@ stages:
           model_path: models/model.joblib
     outs:
     - path: models/model.joblib
-      md5: 21d6a1b33dc9efd0696694e5a8f6f606
-      size: 2931
+      hash: md5
+      md5: d822c792c0b5e1a5223e3491f2eb5e0f
+      size: 2947
   evaluate:
     cmd: python src/stages/evaluate.py --config=params.yaml
     deps:
@@ -123,8 +124,9 @@ stages:
       md5: b5e45593a772fc66629488e1806505c4
       size: 1523
     - path: models/model.joblib
-      md5: 21d6a1b33dc9efd0696694e5a8f6f606
-      size: 2931
+      hash: md5
+      md5: d822c792c0b5e1a5223e3491f2eb5e0f
+      size: 2947
     - path: src/stages/evaluate.py
       md5: 2fc3c87f1849e0eed698b15da8a76e18
       size: 3283
