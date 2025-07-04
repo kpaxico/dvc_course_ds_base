@@ -70,3 +70,30 @@ Or by specifying the remote:
 ```console
 dvc push -r local
 ```
+
+## 5. NOTES
+
+1. `dvc status` (by default) only checks your local workspace against `dvc.lock`.
+
+> It does not check whether your data or outputs are pushed to the remote DVC storage.
+
+To check if your outputs are pushed to the remote storage, you need to run:
+
+```bash
+dvc status -c
+```
+
+2. for example for the `data_load` stage `src/stages/data_load.py` is a dependency. So, it's tracked by DVC. But I think it's also tracked by Git.
+
+You are absolutely correct!
+
+`data_load.py` is listed as a dependency (dep) in your `dvc.yaml` for the `data_load` stage.
+DVC tracks it as a **dependency** for pipeline execution: if this file changes, DVC knows to rerun the stage.
+However, DVC does not store or version-control the actual contents of .py scripts or code files. It just monitors them for changes.
+The actual version control (history, diffs, etc.) for data_load.py is handled by Git, not DVC.
+
+Summary:
+
+Code files (like .py scripts) are tracked by Git.
+DVC tracks them as dependencies for pipeline logic, but does not store their contents in DVC storage.
+Data files (outputs, large datasets, models, etc.) are tracked and stored by DVC.

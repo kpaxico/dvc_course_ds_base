@@ -31,6 +31,8 @@ stages:
         base:
           random_state: 42
           log_level: INFO
+        data_load:
+          dataset_csv: data/raw/iris.csv
         featurize:
           features_path: data/processed/featured_iris.csv
           target_column: target
@@ -80,6 +82,8 @@ stages:
         base:
           random_state: 42
           log_level: INFO
+        data_split.trainset_path: data/processed/train_iris.csv
+        featurize.target_column: target
         train:
           cv: 3
           estimator_name: logreg
@@ -110,7 +114,7 @@ stages:
           model_path: models/model.joblib
     outs:
     - path: models/model.joblib
-      md5: 0b175e427e287df3f6ffd77e304d25c0
+      md5: d690df4e7176ed8794172c05db37ecd0
       size: 2931
   evaluate:
     cmd: python src/stages/evaluate.py --config=params.yaml

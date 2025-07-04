@@ -15,6 +15,7 @@ stages:
       - src/stages/featurize.py
     params:
       - base
+      - data_load
       - featurize
     outs:
       - data/processed/featured_iris.csv
@@ -37,9 +38,12 @@ stages:
       - data/processed/train_iris.csv
     params:
       - base
+      - data_split.trainset_path
+      - featurize.target_column
       - train
     outs:
       - models/model.joblib
+
   evaluate:
     cmd: python src/stages/evaluate.py --config=params.yaml
     deps:
@@ -47,7 +51,12 @@ stages:
       - data/processed/test_iris.csv
       - models/model.joblib
     params:
+      - base
+      - data_split.testset_path
+      - featurize.target_column
       - evaluate
-    outs:
+    metrics:
       - reports/metrics.json
+    outs:
       - reports/confusion_matrix.png
+      - reports/cm_plot.csv
