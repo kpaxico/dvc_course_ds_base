@@ -11,6 +11,9 @@ models/*
 reports/*
 !reports/metrics.json
 
+# DVC plot outputs
+dvc_plots/
+
 # Python
 __pycache__
 .ipynb_checkpoints
