@@ -43,7 +43,6 @@ stages:
       - train
     outs:
       - models/model.joblib
-
   evaluate:
     cmd: python src/stages/evaluate.py --config=params.yaml
     deps:
@@ -56,7 +55,7 @@ stages:
       - featurize.target_column
       - evaluate
     metrics:
-      - reports/metrics.json
+      - reports/metrics.json:
+          cache: false
     outs:
       - reports/confusion_matrix.png
-      - reports/cm_plot.csv
