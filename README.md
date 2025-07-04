@@ -73,7 +73,9 @@ dvc push -r local
 
 ## 5. NOTES
 
-1. `dvc status` (by default) only checks your local workspace against `dvc.lock`.
+## 5.1 `dvc status`
+
+`dvc status` (by default) only checks your local workspace against `dvc.lock`.
 
 > It does not check whether your data or outputs are pushed to the remote DVC storage.
 
@@ -83,7 +85,9 @@ To check if your outputs are pushed to the remote storage, you need to run:
 dvc status -c
 ```
 
-2. for example for the `data_load` stage `src/stages/data_load.py` is a dependency. So, it's tracked by DVC. But I think it's also tracked by Git.
+## 5.2 Depndency to the code files
+
+for example for the `data_load` stage `src/stages/data_load.py` is a dependency. So, it's tracked by DVC. But I think it's also tracked by Git.
 
 You are absolutely correct!
 

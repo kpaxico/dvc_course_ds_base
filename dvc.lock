@@ -126,8 +126,8 @@ stages:
       md5: 393922780a53424606a3bd8b1cd463a9
       size: 2931
     - path: src/stages/evaluate.py
-      md5: ade8d525b48c7aa7b5ac058c42b0f2a0
-      size: 2478
+      md5: 2fc3c87f1849e0eed698b15da8a76e18
+      size: 3283
     params:
       params.yaml:
         base:
@@ -138,11 +138,15 @@ stages:
           reports_dir: reports
           metrics_file: metrics.json
           confusion_matrix_image: confusion_matrix.png
+          confusion_matrix_data: confusion_matrix_data.csv
         featurize.target_column: target
     outs:
     - path: reports/confusion_matrix.png
-      md5: 4f8aef844e0b7af1e352c32024cfca5d
-      size: 22267
+      md5: 154f6736e8342192fa80fca211dee8ac
+      size: 22289
+    - path: reports/confusion_matrix_data.csv
+      md5: 0c4c338c5b47da4e5d4b8caf497c1b53
+      size: 604
     - path: reports/metrics.json
       md5: d533847a0ca14ca93752b1b1f1df349e
       size: 32
