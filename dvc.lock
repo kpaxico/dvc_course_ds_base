@@ -5,7 +5,7 @@ stages:
     deps:
     - path: src/stages/data_load.py
       md5: 5b1ddc1b9eedde77e228789d41694438
-      size: 1143
+      size: 1187
     params:
       params.yaml:
         base:
@@ -25,7 +25,7 @@ stages:
       size: 2908
     - path: src/stages/featurize.py
       md5: e3f85477ffaffd0f3e0dc883720cf740
-      size: 1598
+      size: 1658
     params:
       params.yaml:
         base:
@@ -48,7 +48,7 @@ stages:
       size: 7411
     - path: src/stages/data_split.py
       md5: 3135a5a3399f68fb57b3fe739635d71b
-      size: 1494
+      size: 1545
     params:
       params.yaml:
         base:
@@ -115,7 +115,7 @@ stages:
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: 5d5f5c487017c72e81142be8852ee8f1
+      md5: 0f817f18a4d1853be7a184fa167371f5
       size: 2947
   evaluate:
     cmd: python src/stages/evaluate.py --config=params.yaml
@@ -125,11 +125,11 @@ stages:
       size: 1523
     - path: models/model.joblib
       hash: md5
-      md5: 5d5f5c487017c72e81142be8852ee8f1
+      md5: 0f817f18a4d1853be7a184fa167371f5
       size: 2947
     - path: src/stages/evaluate.py
       md5: 2fc3c87f1849e0eed698b15da8a76e18
-      size: 3283
+      size: 3385
     params:
       params.yaml:
         base:
