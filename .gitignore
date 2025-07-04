@@ -9,6 +9,7 @@
 data/*
 models/*
 reports/*
+!reports/metrics.json
 
 # Python
 __pycache__
