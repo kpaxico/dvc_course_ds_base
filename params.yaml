@@ -31,6 +31,7 @@ train:
         gamma: ["scale"]
         degree: [3, 5]
   model_path: models/model.joblib
+  random_seed: 42
 
 evaluate:
   reports_dir: reports

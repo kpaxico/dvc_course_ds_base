@@ -40,6 +40,7 @@ def train_model(config_path: Text) -> None:
         estimator_name=estimator_name,
         param_grid=config["train"]["estimators"][estimator_name]["param_grid"],
         cv=config["train"]["cv"],
+        random_seed=config["train"].get("random_seed", 42),
     )
     logger.info(f"Best score: {model.best_score_}")
 
